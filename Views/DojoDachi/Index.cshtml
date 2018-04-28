@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>DojoDachi</title>
+        <!-- add ~ to your link href line-->
+         <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/randompass.css"/>
+    </head>
+    <body>
+        <h1>DojoDachi</h1>
+        <br>
+        <p>Fullness: @ViewBag.ReturnFullness</p>
+        <p>Happiness: @ViewBag.ReturnHappiness</p>
+        <p>Meals: @ViewBag.ReturnMeals</p>
+        <p>Energy: @ViewBag.ReturnEnergy</p>
+        <p> @TempData["activity"]</p>
+        @{ if (@TempData["activity"] == "Your tamagochi just died" || @TempData["activity"] == "Congratulations! You won!") {
+            <form action = "FormSubmitReset" method="post">
+                <button type="submit" class="btn btn-success">Restart</button> 
+            </form>
+            }
+         }
+        <form action = "FormSubmitFeed" method="post">
+            <button type="submit" class="btn btn-success">Feed</button>        
+        </form>
+        <form action = "FormSubmitPlay" method="post">
+            <button type="submit" class="btn btn-success">Play</button>        
+        </form>
+        <form action = "FormSubmitWork" method="post">
+            <button type="submit" class="btn btn-success">Work</button> 
+        </form>
+        <form action = "FormSubmitSleep" method="post">
+            <button type="submit" class="btn btn-success">Sleep</button> 
+        </form>     
+    </body>
+</html>
